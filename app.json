@@ -1,0 +1,57 @@
+{
+  "expo": {
+    "name": "MRP²",
+    "slug": "mrp2",
+    "owner": "mattprice84",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "mrp2",
+    "userInterfaceStyle": "light",
+    "backgroundColor": "#F4EFEA",
+    "platforms": ["ios"],
+    "ios": {
+      "bundleIdentifier": "com.mattprice84.mrp2",
+      "supportsTablet": false,
+      "usesAppleSignIn": true,
+      "config": {
+        "usesNonExemptEncryption": false
+      },
+      "infoPlist": {
+        "CFBundleAllowMixedLocalizations": true
+      }
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#F4EFEA",
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 160
+        }
+      ],
+      [
+        "expo-local-authentication",
+        {
+          "faceIDPermission": "MRP² uses Face ID so only you can open it."
+        }
+      ],
+      "expo-apple-authentication",
+      "expo-secure-store",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "MRP² lets you pick photos to share with your spouse.",
+          "cameraPermission": false,
+          "microphonePermission": false
+        }
+      ],
+      "expo-font"
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    }
+  }
+}
