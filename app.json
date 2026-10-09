@@ -9,7 +9,9 @@
     "scheme": "mrp2",
     "userInterfaceStyle": "light",
     "backgroundColor": "#F4EFEA",
-    "platforms": ["ios"],
+    "platforms": [
+      "ios"
+    ],
     "ios": {
       "bundleIdentifier": "com.mattprice84.mrp2",
       "supportsTablet": false,
@@ -52,6 +54,11 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "faa9978e-581f-41f9-ab15-9e61a5af3094"
+      }
     }
   }
 }
