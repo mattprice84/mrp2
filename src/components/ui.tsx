@@ -19,7 +19,15 @@ import { colors, fonts, radius, roleColor, space, touch, type, type Role } from 
 type Variant = keyof typeof type;
 
 export function Txt({ variant = 'body', style, ...rest }: TextProps & { variant?: Variant }) {
-  return <Text {...rest} style={[type[variant], style]} />;
+  const base: TextStyle = type[variant];
+  const own = StyleSheet.flatten(style) ?? {};
+  // A variant's line height is sized for its own font size. When a screen
+  // makes the text bigger without giving a line height, grow the line too,
+  // or iOS clips the tops of the letters.
+  const size = own.fontSize ?? base.fontSize;
+  const line = own.lineHeight ?? base.lineHeight;
+  const fit = size && line && line < size * 1.2 ? { lineHeight: Math.round(size * 1.25) } : null;
+  return <Text {...rest} style={[base, own, fit]} />;
 }
 
 /** Scrolling page with the warm background and room for the tab bar. */
